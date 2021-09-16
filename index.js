@@ -8,11 +8,16 @@ client.on('ready', () => {
     console.log('Hai')
 
     command(client, 'ticket', message => {
-		if (message.guild.id === '885536804940431360') {
+	    
+	    	//                        VV SERVER ID VV
+		if (message.guild.id === 'ID') {
+		//                        ^^ SERVER ID ^^
 			const userID = message.author.id
 			const name = `${message.author.username} Ticket`;
 			message.guild.channels.create(name, {type: 'text'}).then((channel) => {
-				const caID = '885536809566740482';
+				// VV TICKET CATEGORY ID VV
+				const caID = 'ID';
+				// ^^ TICKET CATEGORY ID ^^
 				channel.setParent(caID)
 				channel.updateOverwrite(message.guild.id, {
 					SEND_MESSAGE: false,
@@ -22,11 +27,15 @@ client.on('ready', () => {
 					SEND_MESSAGE: true,
 					VIEW_CHANNEL: true,
 				});
-				channel.updateOverwrite(message.guild.roles.cache.get('885536804940431361'), {
+				//                                                     VV SUPPORT ROLE ID VV
+				channel.updateOverwrite(message.guild.roles.cache.get('ID'), {
+				//                                                     ^^ SUPPORT ROLE ID ^^
 					SEND_MESSAGE: true,
 					VIEW_CHANNEL: true,
 				});
-				channel.send(`Hello ${message.author}, thank you for opening this ticket and please explain your problems. <@&885536804940431361> will come and help you soon!`);
+				//                                                                                                        VV SUPPORT ROLE ID VV
+				channel.send(`Hello ${message.author}, thank you for opening this ticket and please explain your problems. <@&ID> will come and help you soon!`);
+				//                                                                                                        ^^ SUPPORT ROLE ID ^^
 				channel.send(`Ticket owner ID: *${userID}*`)
 			});
 		} else {
@@ -36,7 +45,9 @@ client.on('ready', () => {
 
 	command(client, 'closeticket', message => {
 		if (message.member.hasPermission('ADMINISTRATOR') || message.author.id === '746325289281257547') {
-			if(message.channel.parentID === '857944082432786432') {
+				//                       VV TICKET CATEGORY ID VV
+			if(message.channel.parentID === 'ID') {
+				//                       ^^ TICKET CATEGORY ID ^^
 				message.channel.send('Closing ticket...');
 				setTimeout(function(){ 
 					message.channel.delete()
