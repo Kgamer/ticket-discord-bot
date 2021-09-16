@@ -63,4 +63,11 @@ client.on('ready', () => {
     })
 })
 
+const http = require('http');
+  const server = http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('bot still running');
+  });
+  server.listen(3000); 
+
 client.login(config.token)
